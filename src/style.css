@@ -1,0 +1,12 @@
+.pName {
+    font-size: 10%;
+    color: blueviolet;
+}
+#pType {
+    background-color: aquamarine;
+    padding: 1%, 2%, 1%, 2%, ;
+    border-radius: 10%;
+}
+#pNum {
+    font-size: 30%;
+}
