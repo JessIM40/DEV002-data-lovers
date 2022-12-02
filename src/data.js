@@ -5,10 +5,11 @@
 
 
 
-export const example = () => {
+export const sortData = () => {
+  
   return 'example';
 };
 
-export const anotherExample = () => {
+export const filterData = () => {
   return 'OMG';
 };

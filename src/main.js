@@ -1,26 +1,28 @@
-/* eslint-disable no-console */
-import { example } from './data.js';
-// import data from './data/lol/lol.js';
+import { sortData, filterData } from './data.js';
 import data from './data/pokemon/pokemon.js';
-// import data from './data/rickandmorty/rickandmorty.js';
 
+// MOSTRAR TODOS LOS POKEMONES EN TARJETAS
 for(let i=0; i<251; i++){
     // Traer contenedor de tarjetas Pokemon desde HTML
     let container = document.getElementById("cardsContainer");
-
-    // Crear contenedor de datos de un pokemon
+    // Crear contenedor de datos de cada pokemon
     let card = document.createElement("div");
-
+    // Adjuntar/incluir "card" dentro de "container";
     container.append(card);
-
+    // Añadir/incluir todos los item de la card Pokemon
     card.innerHTML = `
         <img src="${data.pokemon[i].img}"/>
         <h3 id="pokeName" class="pokeData">${data.pokemon[i].num}//${data.pokemon[i].name}</h3>
         <h5 id="pokeType" class="pokeData">${data.pokemon[i].type[0]}</h5>
-        <h5 id="pokeGeneration" class="pokeData">${data.pokemon[i].generation.name}//${data.pokemon[0].generation.num}</h5>
+        <h5 id="pokeGeneration" class="pokeData">${data.pokemon[i].generation.name}//${data.pokemon[i].generation.num}</h5>
     `
 }
 
+// Traer botones desde HTML y agregar escuchador de eventos
+let btnType = document.getElementById("btnType");
+btnType.addEventListener("click", sortData);
+let btnNum = document.getElementById("btnNum");
+btnNum.addEventListener("click", sortData);
 
 
 
@@ -45,4 +47,4 @@ for(let i=0; i<251; i++){
 
 
 // console.log(data.pokemon[0].generation.name);
-console.log(example, data);
+console.log(sortData, filterData, data);

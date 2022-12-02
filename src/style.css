@@ -3,9 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    background-color: black;
-}
+
 #cardsContainer{
     /* border: 1px solid red; */
     display: flex;
