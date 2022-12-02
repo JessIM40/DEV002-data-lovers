@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: black;
+}
 #cardsContainer{
     /* border: 1px solid red; */
     display: flex;
@@ -23,6 +26,6 @@ img{
     height: 100%;
 }
 h3{
-    /* border: 1px solid yellow; */
+    border: 1px solid yellow;
     /* font-size: 70px; */
 }
