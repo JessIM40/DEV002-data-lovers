@@ -1,12 +1,31 @@
-.pName {
-    font-size: 10%;
-    color: blueviolet;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-#pType {
-    background-color: aquamarine;
-    padding: 1%, 2%, 1%, 2%, ;
+body{
+    background-color: black;
+}
+#cardsContainer{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* justify-items: center; */
+    /* flex-direction: column; */
+}
+#cardsContainer div{
+    /* border: 1px solid blue; */
     border-radius: 10%;
+    padding: 5% 30%;
 }
-#pNum {
-    font-size: 30%;
+
+img{
+    border: 1px solid blue;
+    width: 100%;
+    height: 100%;
+}
+h3{
+    border: 1px solid yellow;
+    /* font-size: 70px; */
 }
