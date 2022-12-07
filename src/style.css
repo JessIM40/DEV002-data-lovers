@@ -5,25 +5,26 @@
 }
 
 #cardsContainer{
-    /* border: 1px solid red; */
+    border: 1px solid red;    
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    /* justify-items: center; */
-    /* flex-direction: column; */
+    flex-direction: row;
+    flex-wrap: wrap;
 }
-#cardsContainer div{
-    /* border: 1px solid blue; */
-    border-radius: 10%;
-    padding: 5% 30%;
+#cardsContainer > div {
+    /* border: 1px solid green; */
+    margin: 10px;
+}
+#container-pokeImage{
+    text-align: center;
 }
 
-img{
+#container-pokeNum_Name, #container-pokeGeneration {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pokeData{
     border: 1px solid blue;
-    width: 100%;
-    height: 100%;
+    padding: 5px 10px;
 }
-h3{
-    border: 1px solid yellow;
-    /* font-size: 70px; */
-}
+
