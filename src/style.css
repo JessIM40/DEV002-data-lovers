@@ -28,3 +28,23 @@
     padding: 5px 10px;
 }
 
+#btnContainer {
+    border: 1px solid blue;
+    display: flex;
+}
+#btnContainer_type, #btnContainer_num {
+    border: 1px solid green;
+    display: flex;
+    align-items: center;
+}
+#btnContainer_imgToType, #btnContainer_imgToNum {
+    border: 1px solid red;
+    height: 20px;
+}
+.btn_sort {
+    height: 20px;
+}
+#btnContainer_imgToType img, #btnContainer_imgToNum img {
+    height: 100%;
+}
+
