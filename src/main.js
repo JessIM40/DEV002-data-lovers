@@ -1,4 +1,4 @@
-// import { orderedData } from './data.js';
+import { sortData } from './data.js';
 import data from './data/pokemon/pokemon.js';
 
 // TRAER ELEMENTOS DESDE HTML
@@ -53,62 +53,46 @@ showData(loadData);
 // ORDENAR POKEMONS POR TIPO Y NUMERO DE CREACION
 // Traer botones desde HTML y agregar escuchador de eventos
 let btnType = document.getElementById("btnType");
-btnType.addEventListener("click", (e)=>{sortData(e, loadData)});
+// btnType.addEventListener("click", (e)=>{choiceOrder(e, loadData)});
+btnType.addEventListener("click", (e)=>{configureSortOrder(e, loadData)});
 let btnNum = document.getElementById("btnNum");
-btnNum.addEventListener("click", (e)=>{sortData(e, loadData)});
+btnNum.addEventListener("click", (e)=>{configureSortOrder(e, loadData)});
 
-//orderedData.upward(loadData, sortBy, sortOrder)
-// console.log(orderedData);
-let firstClick = true; // variable para definir orden (ascendente/descendente)
-function sortData (e, loadData) {
+
+// variable para definir orden (ascendente/descendente)
+let firstClick = true; 
+function configureSortOrder(e, loadData) {
+    let sortBy;
     if(e.target.id == "btnType") {
-        // console.log("ordenar por tipo");
-        containerBtnType.innerHTML = ""
+        sortBy = "type";
+        containerBtnType.innerHTML = "";
         // Definir orden ascendente o descendente
-        let order = firstClick ? ("Orden Ascendente", containerBtnType.innerHTML = `<img src="./img/icons8-up-arrow-64.png">`, true) : ("Orden Descendente", containerBtnType.innerHTML = `<img src="./img/icons8-down-arrow-64.png">`, false);
-        // orderedData.upward();
-        let orderedData = loadData.sort(function(a, b) {
-            // Orden ascendente
-            if(order == true){
-                firstClick = false;
-                let x = a.type[0].toLowerCase();
-                let y = b.type[0].toLowerCase();
-                if(x > y) return 1;
-                if(x < y) return -1;
-                return 0;
-            }
-            // Orden descendente
-            if(order == false){
-                firstClick = true;
-                let x = a.type[0].toLowerCase();
-                let y = b.type[0].toLowerCase();
-                if(x > y) return -1;
-                if(x < y) return 1;
-                return 0;
-            }
-        });
-        showData(orderedData);
+        let sortOrder = firstClick ? (
+            containerBtnType.innerHTML = `<img src="./img/icons8-up-arrow-64.png">`, 
+            firstClick = false,
+            "upward"
+        ) : (
+            containerBtnType.innerHTML = `<img src="./img/icons8-down-arrow-64.png">`, 
+            firstClick = true,
+            "downward"
+        );
+        sortData(loadData, sortBy, sortOrder);
     }
     if(e.target.id == "btnNum") {
+        sortBy = "number";
         containerBtnNum.innerHTML = "";
         // Definir orden ascendente o descendente
-        let order = firstClick ? ("Orden Ascendente", containerBtnNum.innerHTML = `<img src="./img/icons8-up-arrow-64.png">`, true) : ("Orden Descendente", containerBtnNum.innerHTML = `<img src="./img/icons8-down-arrow-64.png">`, false);
-        let orderedData = loadData.sort(function(a, b) {
-            // Orden ascendente
-            if(order == true){
-                firstClick = false;
-                if(a.num > b.num) return 1;
-                if(a.num < b.num) return -1;
-                return 0;
-            }
-            // Orden descendente
-            if(order == false){
-                firstClick = true;
-                if(a.num > b.num) return -1;
-                if(a.num < b.num) return 1;
-                return 0;
-            }
-        });
-        showData(orderedData);
+        let sortOrder = firstClick ? (
+            containerBtnNum.innerHTML = `<img src="./img/icons8-up-arrow-64.png">`, 
+            firstClick = false,
+            "upward"
+        ) : (
+            containerBtnNum.innerHTML = `<img src="./img/icons8-down-arrow-64.png">`, 
+            firstClick = true,
+            "downward"
+        );
+        sortData(loadData, sortBy, sortOrder);
     }
 }
+
+export { showData };
