@@ -7,22 +7,33 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <head>POKEPEDIA</head>
+    <header class="title">POKEPEDIA</header>
     <main>
-      <!-- Contenedor de botones para ordenar tarjetas Pokemon -->
-      <div id="btnContainer">
-        <div id="btnContainer_type">
-          <button id="btnType" class="btn_sort">Tipo</button>
-          <div id="btnContainer_imgToType"></div>
+      <!-- Contenedor de botones para ORDENAR tarjetas Pokemon -->
+      <div id="btnOrderContainer">
+        <div id="btnOrderContainer_type">
+          <button id="btnOrderType" class="btn_sort">Tipo</button>
+          <div id="btnOrderContainer_imgToType"></div>
         </div>
-        <div id="btnContainer_num">
-          <button id="btnNum" class="btn_sort">N° creación</button>
-          <div id="btnContainer_imgToNum"></div>
+        <div id="btnOrderContainer_num">
+          <button id="btnOrderNum" class="btn_sort">N° creación</button>
+          <div id="btnOrderContainer_imgToNum"></div>
         </div>
       </div>
       
-      <!-- Contenedor de tarjetas Pokemons -->
-      <section id="cardsContainer"></section>
+      <div id="containerPrincipal">
+        <!-- Contenedor de botones para FILTRAR tarjetas Pokemon -->
+        <div id="btnFilterContainer">
+          <div id="btnFilterContainer_generation">
+            <button id="btnFilterGeneration" class="btn_filter">G</button>
+          </div>
+          <div id="btnFilterContainer_type">
+            <button id="btnFilterType" class="btn_filter">T</button>
+          </div>
+        </div>
+        <!-- Contenedor de tarjetas Pokemons -->
+        <section id="cardsContainer"></section>
+      </div>
       
     </main>
     <!-- <footer></footer> -->

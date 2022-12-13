@@ -37,18 +37,6 @@ export const sortData = (data, sortBy, sortOrder) => {
 
 
 
-
-
-
-
-
-
-
-// const sortData = (data, sortBy, sortOrder) => {
-//   console.log(data, sortBy, sortOrder);
-//   return console.log('example');
-// };
-
 // const filterData = (data, condition) => {
 //   return 'OMG';
 // };
