@@ -52,7 +52,7 @@ body {
 #containerPrincipal {
     border: 1px solid orange;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 /* MOSTRAR TARJETAS */
@@ -62,12 +62,12 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    width: 80%;
+    width: fit-content;
 }
 #cardsContainer > div {
     border: 1px solid green;
-    width: 60%;
-    margin: 30px 50px;
+    width: 190px;
+    margin: 30px 20px;
 }
 #container-pokeImage{
     /* border: 1px solid orangered; */
@@ -86,14 +86,14 @@ body {
     padding: 5px 10px;
 }
 h3, h5 {
-    font-size: 25px;
+    font-size: 18px;
 }
 
 
 /* BOTONES PARA FILTRAR */
 #btnFilterContainer {
-    /* border: 1px solid blue; */
-    width: 20%;
+    border: 1px solid blue;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -110,7 +110,7 @@ h3, h5 {
 
 /* MEDIA QUERY*/
 
-@media screen and (max-width: 1280px){
+/* @media screen and (max-width: 1280px){
     body{
         background-color:burlywood;
     }
@@ -129,4 +129,4 @@ h3, h5 {
         background-color:lightblue;
     }
     
-}
+} */
