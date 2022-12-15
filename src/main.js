@@ -36,7 +36,8 @@ function showData(loadData){
                 <h3 id="pokeNum">${item.num}</h3>
             </div>
             <div id="container-pokeType" class="pokeData">
-                <h5 id="pokeType">${item.type}</h5>
+                <h5 id="pokeType">${item.type[0]}</h5>
+                <h5 id="pokeType">${item.type[1]}</h5>
             </div>
             <div id="container-pokeGeneration" class="pokeData">
                 <h5 id="pokeGenerationName">${item.generation.name}</h5>
@@ -99,15 +100,48 @@ function configureSortOrder(e, loadData) {
 
 // FILTRAR POKEMONS POR GENERACIÓN Y TIPO
 let btnFilterType = document.getElementById("btnFilterType");
-btnFilterType.addEventListener("click", (e)=>{configureFiltered(e, loadData)});
-let btnFilterNum = document.getElementById("btnFilterNum");
-btnFilterNum.addEventListener("click", (e)=>{configureFiltered(e, loadData)});
+// btnFilterType.addEventListener("click", (e)=>{configureFiltered(e, loadData)});
+btnFilterType.addEventListener("click", (e)=>{appendOptionsToSelect(e, loadData)});
+// let btnFilterNum = document.getElementById("btnFilterNum");
+// btnFilterNum.addEventListener("click", (e)=>{configureFiltered(e, loadData)});
 
-function configureFiltered (e, loadData){
-    console.log(e.target.id);
-    console.log(loadData);
+let typePokemon = [];
+for (let i=0; i < 251; i++){
+    loadData[i].type.reduce((a, e) => {
+        if(!a.find(d=> d == e)){
+            a.push(e)
+        }
+        return a;
+    }, typePokemon);
 }
+console.log(typePokemon);
 
+// Traer elemento select desde HTML
+let selectType = document.getElementById("type-select");
+function appendOptionsToSelect(){
+    let options = typePokemon.map(function(opt){
+        selectType.innerHTML += `
+        <option value="${opt}">${opt}</option>
+       `
+    })
+    console.log(options);
+    console.log(selectType);
+}
+// selectType.innerHTML = "";
+// function configureFiltered (e, loadData){
+
+
+//     if(e.target.id == "btnFilterType"){
+//         let filteredData = loadData.filter(item => item.type[0] == typePokemon[5]);
+//             // console.log(item.type););
+//         console.log(filteredData)
+//         showData(filteredData);
+//     }
+    
+// }
+
+
+/* <option value="dog">Dog</option> */
 
 
 export { showData };

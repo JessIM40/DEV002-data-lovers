@@ -14,7 +14,7 @@ body {
     color: aliceblue;
     text-align: center;
     font-size: 40px;
-    position:sticky; /* para fijar un elemento en una posiciion*/
+    position:sticky; /* para fijar un elemento en una posicion*/
     top: 0; /* valor de posicion fija*/
     padding: 10px;
 }
