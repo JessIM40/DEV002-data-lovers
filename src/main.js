@@ -36,13 +36,14 @@ function showData(loadData){
                 <h3 id="pokeNum">${item.num}</h3>
             </div>
             <div id="container-pokeType" class="pokeData">
-                <h5 id="pokeType">${item.type[0]}</h5>
-                <h5 id="pokeType">${item.type[1]}</h5>
+                <h5 id="pokeType">${item.type}</h5>
+                
             </div>
             <div id="container-pokeGeneration" class="pokeData">
                 <h5 id="pokeGenerationName">${item.generation.name}</h5>
                 <h5 id="pokeGenerationNum">${item.generation.num}</h5>
             </div>`
+            // <h5 id="pokeType">${item.type[1]}</h5>
         // Adjuntar/incluir "card" dentro de "container";
         container.appendChild(card);
     })
@@ -98,15 +99,16 @@ function configureSortOrder(e, loadData) {
     }
 }
 
-// FILTRAR POKEMONS POR GENERACIÓN Y TIPO
-let btnFilterType = document.getElementById("btnFilterType");
-// btnFilterType.addEventListener("click", (e)=>{configureFiltered(e, loadData)});
-btnFilterType.addEventListener("click", (e)=>{appendOptionsToSelect(e, loadData)});
-// let btnFilterNum = document.getElementById("btnFilterNum");
-// btnFilterNum.addEventListener("click", (e)=>{configureFiltered(e, loadData)});
 
+// FILTRAR POKEMONS POR GENERACIÓN Y TIPO
+// Traer elemento select desde HTML
+let selectType = document.getElementById("type-select");
+selectType.addEventListener("change", (e) => {configureFiltered (e, loadData)});
+
+
+// Creamos un array para la lista de opciones del select
 let typePokemon = [];
-for (let i=0; i < 251; i++){
+for (let i=0; i < loadData.length; i++){
     loadData[i].type.reduce((a, e) => {
         if(!a.find(d=> d == e)){
             a.push(e)
@@ -114,34 +116,31 @@ for (let i=0; i < 251; i++){
         return a;
     }, typePokemon);
 }
-console.log(typePokemon);
 
-// Traer elemento select desde HTML
-let selectType = document.getElementById("type-select");
-function appendOptionsToSelect(){
-    let options = typePokemon.map(function(opt){
-        selectType.innerHTML += `
-        <option value="${opt}">${opt}</option>
-       `
-    })
-    console.log(options);
-    console.log(selectType);
+// Agregar opciones al elemento select del HTML
+typePokemon.map(function(opt){
+    selectType.innerHTML += `
+    <option value="${opt}">${opt}</option>
+    `
+})
+
+function configureFiltered (e, loadData){
+    if(e.target.id == "type-select"){
+        let filteredData = loadData.filter(item => item.type[0] == e.target.value); // filtrar por item.type[1]??? 
+        showData(filteredData);
+    }
 }
-// selectType.innerHTML = "";
-// function configureFiltered (e, loadData){
+
+/* PREGUNTAS OH:
+- linea 129  main.js
+- linea 6 data.js
+*/
 
 
-//     if(e.target.id == "btnFilterType"){
-//         let filteredData = loadData.filter(item => item.type[0] == typePokemon[5]);
-//             // console.log(item.type););
-//         console.log(filteredData)
-//         showData(filteredData);
-//     }
-    
-// }
 
+/* RETOS:
+   1.- Ordenar de acuerdo a lo mostrado (guardar en una variable la ultima data mostrada, y llamarla desde cualquier funcion).
 
-/* <option value="dog">Dog</option> */
-
+*/
 
 export { showData };
