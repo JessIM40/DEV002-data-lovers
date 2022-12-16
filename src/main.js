@@ -99,7 +99,6 @@ function configureSortOrder(e, loadData) {
     }
 }
 
-
 // FILTRAR POKEMONS POR GENERACIÓN Y TIPO
 // Traer elemento select desde HTML
 let selectType = document.getElementById("type-select");
@@ -142,5 +141,8 @@ function configureFiltered (e, loadData){
    1.- Ordenar de acuerdo a lo mostrado (guardar en una variable la ultima data mostrada, y llamarla desde cualquier funcion).
 
 */
+
+
+// console.log(filterType);
 
 export { showData };
