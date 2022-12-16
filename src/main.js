@@ -37,11 +37,13 @@ function showData(loadData){
             </div>
             <div id="container-pokeType" class="pokeData">
                 <h5 id="pokeType">${item.type}</h5>
+                
             </div>
             <div id="container-pokeGeneration" class="pokeData">
                 <h5 id="pokeGenerationName">${item.generation.name}</h5>
                 <h5 id="pokeGenerationNum">${item.generation.num}</h5>
             </div>`
+            // <h5 id="pokeType">${item.type[1]}</h5>
         // Adjuntar/incluir "card" dentro de "container";
         container.appendChild(card);
     })
@@ -97,17 +99,48 @@ function configureSortOrder(e, loadData) {
     }
 }
 
-// FILTRAR POKEMONS POR GENERACIÓN Y TIPO
-let btnFilterType = document.getElementById("btnFilterType");
-btnFilterType.addEventListener("click", (e)=>{configureFiltered(e, loadData)});
-let btnFilterNum = document.getElementById("btnFilterNum");
-btnFilterNum.addEventListener("click", (e)=>{configureFiltered(e, loadData)});
 
-function configureFiltered (e, loadData){
-    console.log(e.target.id);
-    console.log(loadData);
+// FILTRAR POKEMONS POR GENERACIÓN Y TIPO
+// Traer elemento select desde HTML
+let selectType = document.getElementById("type-select");
+selectType.addEventListener("change", (e) => {configureFiltered (e, loadData)});
+
+
+// Creamos un array para la lista de opciones del select
+let typePokemon = [];
+for (let i=0; i < loadData.length; i++){
+    loadData[i].type.reduce((a, e) => {
+        if(!a.find(d=> d == e)){
+            a.push(e)
+        }
+        return a;
+    }, typePokemon);
 }
 
+// Agregar opciones al elemento select del HTML
+typePokemon.map(function(opt){
+    selectType.innerHTML += `
+    <option value="${opt}">${opt}</option>
+    `
+})
 
+function configureFiltered (e, loadData){
+    if(e.target.id == "type-select"){
+        let filteredData = loadData.filter(item => item.type[0] == e.target.value); // filtrar por item.type[1]??? 
+        showData(filteredData);
+    }
+}
+
+/* PREGUNTAS OH:
+- linea 129  main.js
+- linea 6 data.js
+*/
+
+
+
+/* RETOS:
+   1.- Ordenar de acuerdo a lo mostrado (guardar en una variable la ultima data mostrada, y llamarla desde cualquier funcion).
+
+*/
 
 export { showData };

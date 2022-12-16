@@ -37,8 +37,9 @@ export const sortData = (data, sortBy, sortOrder) => {
 
 
 
-// const filterData = (data, condition) => {
-//   return 'OMG';
+// export const filterData = (data, condition) => {
+//     data.filter(item => item.type[0] == condition); // filtrar por item.type[1]??? 
+// //   return filteredData;
 // };
 
 // const computeStats = (data) => {
