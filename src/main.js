@@ -1,6 +1,13 @@
 import { sortData } from './data.js';
 import data from './data/pokemon/pokemon.js';
 
+//Pruebas de Consola-----------------------------------------
+
+// console.log(data.pokemon);
+console.log(data.pokemon[0].generation.name);
+
+
+
 // TRAER ELEMENTOS DESDE HTML
 // Traer contenedor de tarjetas Pokemon desde HTML
 let container = document.getElementById("cardsContainer");
@@ -10,7 +17,7 @@ let containerBtnNum = document.getElementById("btnOrderContainer_imgToNum");
 
 
 // OBTENER PARTE DE LA DATA
-let loadData = data.pokemon.map(function(datum){
+let loadData = data.pokemon.map(function (datum) {
     return {
         img: datum.img,
         name: datum.name,
@@ -20,8 +27,15 @@ let loadData = data.pokemon.map(function(datum){
     }
 })
 
+let splitLoadData = loadData[0].generation.name.split("n");
+
+// console.dir(loadData[0].generation.split(""));
+
+console.dir(splitLoadData);
+
+
 // MOSTRAR TODOS LOS POKEMONES EN TARJETAS
-function showData(loadData){
+function showData(loadData) {
     container.innerHTML = "";
     loadData.forEach((item) => {
         // Crear tarjeta (contenedor de datos) de cada pokemon
@@ -43,7 +57,7 @@ function showData(loadData){
                 <h5 id="pokeGenerationName">${item.generation.name}</h5>
                 <h5 id="pokeGenerationNum">${item.generation.num}</h5>
             </div>`
-            // <h5 id="pokeType">${item.type[1]}</h5>
+        // <h5 id="pokeType">${item.type[1]}</h5>
         // Adjuntar/incluir "card" dentro de "container";
         container.appendChild(card);
     })
@@ -55,16 +69,16 @@ showData(loadData);
 // ORDENAR POKEMONS POR TIPO Y NUMERO DE CREACION
 // Traer botones desde HTML y agregar escuchador de eventos
 let btnType = document.getElementById("btnOrderType");
-btnType.addEventListener("click", (e)=>{configureSortOrder(e, loadData)});
+btnType.addEventListener("click", (e) => { configureSortOrder(e, loadData) });
 let btnNum = document.getElementById("btnOrderNum");
-btnNum.addEventListener("click", (e)=>{configureSortOrder(e, loadData)});
+btnNum.addEventListener("click", (e) => { configureSortOrder(e, loadData) });
 
 // variable para definir orden (ascendente/descendente)
 let firstClick = true;
 
 function configureSortOrder(e, loadData) {
     let sortBy;
-    if(e.target.id == "btnOrderType") {
+    if (e.target.id == "btnOrderType") {
         sortBy = "type";
         containerBtnType.innerHTML = "";
         // Definir orden ascendente o descendente
@@ -72,26 +86,26 @@ function configureSortOrder(e, loadData) {
         // let a = -3;
         // a > 3 ? alert("todo bien") : alert("todo mal");
         let sortOrder = firstClick ? (
-            containerBtnType.innerHTML = `<img src="./img/icons8-collapse-arrow-100.png">`, 
+            containerBtnType.innerHTML = `<img src="./img/icons8-collapse-arrow-100.png">`,
             firstClick = false,
             "upward"
         ) : (
-            containerBtnType.innerHTML = `<img src="./img/icons8-expand-arrow-100.png">`, 
+            containerBtnType.innerHTML = `<img src="./img/icons8-expand-arrow-100.png">`,
             firstClick = true,
             "downward"
         );
         sortData(loadData, sortBy, sortOrder);
     }
-    if(e.target.id == "btnOrderNum") {
+    if (e.target.id == "btnOrderNum") {
         sortBy = "number";
         containerBtnNum.innerHTML = "";
         // Definir orden ascendente o descendente
         let sortOrder = firstClick ? (
-            containerBtnNum.innerHTML = `<img src="./img/icons8-collapse-arrow-100.png">`, 
+            containerBtnNum.innerHTML = `<img src="./img/icons8-collapse-arrow-100.png">`,
             firstClick = false,
             "upward"
         ) : (
-            containerBtnNum.innerHTML = `<img src="./img/icons8-expand-arrow-100.png">`, 
+            containerBtnNum.innerHTML = `<img src="./img/icons8-expand-arrow-100.png">`,
             firstClick = true,
             "downward"
         );
@@ -102,14 +116,14 @@ function configureSortOrder(e, loadData) {
 // FILTRAR POKEMONS POR GENERACIÓN Y TIPO
 // Traer elemento select desde HTML
 let selectType = document.getElementById("type-select");
-selectType.addEventListener("change", (e) => {configureFiltered (e, loadData)});
+selectType.addEventListener("change", (e) => { configureFiltered(e, loadData) });
 
 
 // Creamos un array para la lista de opciones del select
 let typePokemon = [];
-for (let i=0; i < loadData.length; i++){
+for (let i = 0; i < loadData.length; i++) {
     loadData[i].type.reduce((a, e) => {
-        if(!a.find(d=> d == e)){
+        if (!a.find(d => d == e)) {
             a.push(e)
         }
         return a;
@@ -117,14 +131,15 @@ for (let i=0; i < loadData.length; i++){
 }
 
 // Agregar opciones al elemento select del HTML
-typePokemon.map(function(opt){
+typePokemon.map(function (opt) {
     selectType.innerHTML += `
     <option value="${opt}">${opt}</option>
     `
 })
+// console.log(typePokemon)
 
-function configureFiltered (e, loadData){
-    if(e.target.id == "type-select"){
+function configureFiltered(e, loadData) {
+    if (e.target.id == "type-select") {
         let filteredData = loadData.filter(item => item.type[0] == e.target.value); // filtrar por item.type[1]??? 
         showData(filteredData);
     }
@@ -144,5 +159,68 @@ function configureFiltered (e, loadData){
 
 
 // console.log(filterType);
+
+//FILTRAR POKEMON POR GENERACIÓN:
+
+//Llamar comoponentes del DOM------------------
+
+let generationSelect = document.getElementById("generation-Select");
+generationSelect.addEventListener("change", (e) => { generationFilter(e, loadData) });
+
+// console.log(e);
+
+//Llamar name y num de generation-----------------------
+
+// let arrayGeneration = loadData.generation.name.map(function (datum) {
+//     return {
+//         generation: datum.generation
+//     }
+    
+// })
+// console.log(arrayGeneration);
+
+//Genrar array sin duplicas-------------------
+console.log(loadData);
+console.log(loadData[0].generation.name);
+let generation_Select = [];
+for (let i = 0; i < loadData.length; i++) {
+    loadData[i].generation.name.reduce((a, e) => {
+        if (!a.find(d => d == e)) {
+            a.push(e)
+        }
+        return a;
+    }, generation_Select);
+}
+// console.log(generation_Select)
+// let typePokemon = [];
+// for (let i = 0; i < loadData.length; i++) {
+//     loadData[i].type.reduce((a, e) => {
+//         if (!a.find(d => d == e)) {
+//             a.push(e)
+//         }
+//         return a;
+//     }, typePokemon);
+// }
+
+//Establecer array sin duplicas como el valor del contenido en options de select-----------
+
+generation_Select.map(function (opt) {
+    generationSelect.innerHTML += `
+    <option value="${opt}">${opt}</option>
+    `
+})
+
+//Filtrar la data usando el contenido de option.value-----------------
+
+function generationFilter(e, loadData) {
+    if (e.target.id == "generation-Select") {
+        let filteredGeneration = loadData.filter(item => item.generation.name == e.target.value); // filtrar por item.type[1]??? 
+        showData(filteredGeneration);
+        console.log(item);
+    }
+}
+// const filterGeneration = loadData[i].generation.name.filter (item => ); ||
+
+
 
 export { showData };
