@@ -114,14 +114,20 @@ h3, h5 {
     body{
         background-color:burlywood;
     }
-    
+    #container-pokeImage img{
+        /* border: 1px solid red; */
+        /* max-width: 25%; */
+    /* }
 }
 
 @media screen and (max-width: 800px){
     body{
         background-color:lightgray;
     }
-    
+    #container-pokeImage img{
+        /* border: 1px solid red; */
+        /* max-width: 50%; */
+    /* }
 }
 
 @media screen and (max-width: 480px){
