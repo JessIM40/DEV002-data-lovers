@@ -1,11 +1,6 @@
-import { sortData } from './data.js';
+import { sortData, configureFiltered } from './data.js';
+
 import data from './data/pokemon/pokemon.js';
-
-//Pruebas de Consola-----------------------------------------
-
-// console.log(data.pokemon);
-console.log(data.pokemon[0].generation.name);
-
 
 
 // TRAER ELEMENTOS DESDE HTML
@@ -15,9 +10,8 @@ let container = document.getElementById("cardsContainer");
 let containerBtnType = document.getElementById("btnOrderContainer_imgToType");
 let containerBtnNum = document.getElementById("btnOrderContainer_imgToNum");
 
-
 // OBTENER PARTE DE LA DATA
-let loadData = data.pokemon.map(function (datum) {
+const loadData = data.pokemon.map(function (datum) {
     return {
         img: datum.img,
         name: datum.name,
@@ -25,16 +19,9 @@ let loadData = data.pokemon.map(function (datum) {
         type: datum.type,
         generation: datum.generation
     }
-})
+});
 
-let splitLoadData = loadData[0].generation.name.split("n");
-
-// console.dir(loadData[0].generation.split(""));
-
-console.dir(splitLoadData);
-
-
-// MOSTRAR TODOS LOS POKEMONES EN TARJETAS
+// // MOSTRAR TODOS LOS POKEMONES EN TARJETAS
 function showData(loadData) {
     container.innerHTML = "";
     loadData.forEach((item) => {
@@ -60,10 +47,11 @@ function showData(loadData) {
         // <h5 id="pokeType">${item.type[1]}</h5>
         // Adjuntar/incluir "card" dentro de "container";
         container.appendChild(card);
+        // console.log(item)
     })
 }
 
-// Llamamos a la funcion showData para mostrar los pokemones por defecto
+// // Llamamos a la funcion showData para mostrar los pokemones por defecto
 showData(loadData);
 
 // ORDENAR POKEMONS POR TIPO Y NUMERO DE CREACION
@@ -94,7 +82,9 @@ function configureSortOrder(e, loadData) {
             firstClick = true,
             "downward"
         );
-        sortData(loadData, sortBy, sortOrder);
+        const newData = sortData(loadData, sortBy, sortOrder);
+        // console.log(newData);
+        showData (newData);
     }
     if (e.target.id == "btnOrderNum") {
         sortBy = "number";
@@ -109,15 +99,18 @@ function configureSortOrder(e, loadData) {
             firstClick = true,
             "downward"
         );
-        sortData(loadData, sortBy, sortOrder);
+        const newData = sortData(loadData, sortBy, sortOrder);
+        // console.log(newData);
+        showData (newData);
     }
 }
 
 // FILTRAR POKEMONS POR GENERACIÓN Y TIPO
 // Traer elemento select desde HTML
 let selectType = document.getElementById("type-select");
-selectType.addEventListener("change", (e) => { configureFiltered(e, loadData) });
+selectType.addEventListener("change", (e) => { showData (configureFiltered(e, loadData)) });
 
+//MUDAR A---------------------------------------------------
 
 // Creamos un array para la lista de opciones del select
 let typePokemon = [];
@@ -138,12 +131,7 @@ typePokemon.map(function (opt) {
 })
 // console.log(typePokemon)
 
-function configureFiltered(e, loadData) {
-    if (e.target.id == "type-select") {
-        let filteredData = loadData.filter(item => item.type[0] == e.target.value); // filtrar por item.type[1]??? 
-        showData(filteredData);
-    }
-}
+//--- data.js-----------------------------------------------------
 
 /* PREGUNTAS OH:
 - linea 129  main.js
@@ -164,8 +152,8 @@ function configureFiltered(e, loadData) {
 
 //Llamar comoponentes del DOM------------------
 
-let generationSelect = document.getElementById("generation-Select");
-generationSelect.addEventListener("change", (e) => { generationFilter(e, loadData) });
+// let generationSelect = document.getElementById("generation-Select");
+// generationSelect.addEventListener("change", (e) => { generationFilter(e, loadData) });
 
 // console.log(e);
 
@@ -180,17 +168,17 @@ generationSelect.addEventListener("change", (e) => { generationFilter(e, loadDat
 // console.log(arrayGeneration);
 
 //Genrar array sin duplicas-------------------
-console.log(loadData);
-console.log(loadData[0].generation.name);
-let generation_Select = [];
-for (let i = 0; i < loadData.length; i++) {
-    loadData[i].generation.name.reduce((a, e) => {
-        if (!a.find(d => d == e)) {
-            a.push(e)
-        }
-        return a;
-    }, generation_Select);
-}
+// console.log(loadData);
+// console.log(loadData[0].generation.name);
+// let generation_Select = [];
+// for (let i = 0; i < loadData.length; i++) {
+//     loadData[i].generation.name.reduce((a, e) => {
+//         if (!a.find(d => d == e)) {
+//             a.push(e)
+//         }
+//         return a;
+//     }, generation_Select);
+// }
 // console.log(generation_Select)
 // let typePokemon = [];
 // for (let i = 0; i < loadData.length; i++) {
@@ -204,23 +192,19 @@ for (let i = 0; i < loadData.length; i++) {
 
 //Establecer array sin duplicas como el valor del contenido en options de select-----------
 
-generation_Select.map(function (opt) {
-    generationSelect.innerHTML += `
-    <option value="${opt}">${opt}</option>
-    `
-})
+// generation_Select.map(function (opt) {
+//     generationSelect.innerHTML += `
+//     <option value="${opt}">${opt}</option>
+//     `
+// })
 
-//Filtrar la data usando el contenido de option.value-----------------
+// //Filtrar la data usando el contenido de option.value-----------------
 
-function generationFilter(e, loadData) {
-    if (e.target.id == "generation-Select") {
-        let filteredGeneration = loadData.filter(item => item.generation.name == e.target.value); // filtrar por item.type[1]??? 
-        showData(filteredGeneration);
-        console.log(item);
-    }
-}
+// function generationFilter(e, loadData) {
+//     if (e.target.id == "generation-Select") {
+//         let filteredGeneration = loadData.filter(item => item.generation.name == e.target.value); // filtrar por item.type[1]??? 
+//         showData(filteredGeneration);
+//         // console.log(item);
+//     }
+// }
 // const filterGeneration = loadData[i].generation.name.filter (item => ); ||
-
-
-
-export { showData };
