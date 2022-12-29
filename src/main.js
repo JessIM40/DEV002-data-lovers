@@ -21,7 +21,7 @@ const loadData = data.pokemon.map(function (datum) {
     }
 });
 
-// // MOSTRAR TODOS LOS POKEMONES EN TARJETAS
+// MOSTRAR TODOS LOS POKEMONES EN TARJETAS
 function showData(loadData) {
     container.innerHTML = "";
     loadData.forEach((item) => {
