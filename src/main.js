@@ -100,7 +100,6 @@ function configureSortOrder(e, loadData) {
 // Traer elemento select desde HTML
 let selectType = document.getElementById("type-select");
 selectType.addEventListener("change", (e) => { configureFilterData(e, loadData) });
-// selectType.addEventListener("change", (e) => { showData (filterData(e, loadData)) });
 
 
 // Creamos un array para la lista de opciones del select
@@ -127,17 +126,4 @@ function configureFilterData(e, loadData){
        showData(filterData(filteredBy, loadData))
     }
 }
-// const dataJess = [
-//     { num: "001", name: "bulbasaur", type: ["grass", "poison"] },
-//     { num: "005", name: "charmeleon", type: ["fire"] },
-//     { num: "007", name: "squirtle", type: ["water"] },
-//     { num: "071", name: "victreebel", type: ["grass", "poison"] },
-//     { num: "050", name: "diglett", type: ["ground"] },
-//     { num: "152", name: "chikorita", type: ["grass"] },
-//     { num: "138", name: "omanyte", type: ["rock", "water"] },
-//     { num: "043", name: "oddish", type: ["grass", "poison"] },
-//     { num: "046", name: "paras", type: ["bug", "grass"] }
-//   ];
 
-//   console.log(dataJess);
-//   console.log(dataJess[/[0-7]/].type[0]);
