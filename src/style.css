@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+}
+
+.title {
+    /* border: 1px solid orange; */
+    background-color: black;
+    color: aliceblue;
+    text-align: center;
+    font-size: 40px;
+    position:sticky; /* para fijar un elemento en una posicion*/
+    top: 0; /* valor de posicion fija*/
+    padding: 10px;
+}
+
+/* BOTONES PARA ORDENAR */
+#btnOrderContainer {
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: flex-end;
+}
+#btnOrderContainer_type, #btnOrderContainer_num {
+    /* border: 1px solid green; */
+    display: flex; /* para que el icono (ascendente/descendente) se ubique al costado*/
+    margin: 10px 20px;
+    align-items: center;
+    background-color: cadetblue;
+}
+.btn_sort {
+    /* border: 1px solid greenyellow; */
+    font-size: 20px;
+    padding: 10px 15px;
+    border: none;
+    background-color: transparent;
+}
+#btnOrderContainer_imgToType, #btnOrderContainer_imgToNum {
+    /* border: 1px solid red; */
+    height: 20px;
+    margin-right: 10px ;
+}
+#btnOrderContainer_imgToType img, #btnOrderContainer_imgToNum img {
+    height: 100%;
+}
+
+
+#containerPrincipal {
+    border: 1px solid orange;
+    display: flex;
+    justify-content: center;
+}
+
+/* MOSTRAR TARJETAS */
+#cardsContainer{
+    border: 1px solid red;   
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: fit-content;
+}
+#cardsContainer > div {
+    border: 1px solid green;
+    width: 190px;
+    margin: 30px 20px;
+}
+#container-pokeImage{
+    /* border: 1px solid orangered; */
+    text-align: center;
+}
+#container-pokeImage img{
+    /* border: 1px solid red; */
+    width: 100%;
+}
+#container-pokeNum_Name, #container-pokeGeneration {
+    display: flex;
+    justify-content: space-between;
+}
+.pokeData{
+    border: 1px solid blue;
+    padding: 5px 10px;
+}
+h3, h5 {
+    font-size: 18px;
+}
+
+
+/* BOTONES PARA FILTRAR */
+#btnFilterContainer {
+    border: 1px solid blue;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.btn_filter {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    font-size: 30px;
+    margin: 30px;
+}
+
+
+
+/* MEDIA QUERY*/
+
+/* @media screen and (max-width: 1280px){
+    body{
+        background-color:burlywood;
+    }
+    #container-pokeImage img{
+        /* border: 1px solid red; */
+        /* max-width: 25%; */
+    /* }
+}
+
+@media screen and (max-width: 800px){
+    body{
+        background-color:lightgray;
+    }
+    #container-pokeImage img{
+        /* border: 1px solid red; */
+        /* max-width: 50%; */
+    /* }
+}
+
+@media screen and (max-width: 480px){
+    body{
+        background-color:lightblue;
+    }
+    
+} */

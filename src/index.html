@@ -2,11 +2,48 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Data Lovers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataLovers Pokemon</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="root"></div>
+    <header class="title">POKEPEDIA</header>
+    <main>
+      <!-- Contenedor de botones para ORDENAR tarjetas Pokemon -->
+      <div id="btnOrderContainer">
+        <div id="btnOrderContainer_type">
+          <button id="btnOrderType" class="btn_sort">Tipo</button>
+          <div id="btnOrderContainer_imgToType"></div>
+        </div>
+        <div id="btnOrderContainer_num">
+          <button id="btnOrderNum" class="btn_sort">N° creación</button>
+          <div id="btnOrderContainer_imgToNum"></div>
+        </div>
+      </div>
+      
+      <div id="containerPrincipal">
+        <!-- Contenedor de botones para FILTRAR tarjetas Pokemon -->
+        <div id="btnFilterContainer">
+          <!-- <div id="btnFilterContainer_generation">
+            <select name="generationPokemon" class="generationSelect" id="generation-Select">
+              <option value="" selected disabled> Filtrar por Generación: </option>
+            </select>
+          </div> -->
+          <div id="btnFilterContainer_type">
+            <select name="typesPokemon" id="type-select" required>
+              <option value="" selected>--Filtrar por tipo:--</option>
+            </select>
+          </div>
+        </div>
+        <!-- Contenedor de tarjetas Pokemons -->
+        <section id="cardsContainer"></section>
+      </div>
+      
+    </main>
+    <!-- <footer></footer> -->
+
+
+    <!-- <div id="root"></div> -->
     <script src="main.js" type="module"></script>
   </body>
 </html>
