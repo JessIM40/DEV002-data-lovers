@@ -34,4 +34,8 @@ function filterData(filteredBy, loadData) {
 
 const calculateData = (data) => data.length;
 
+
+
+
+
 export { sortData, filterData, calculateData };
