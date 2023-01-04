@@ -1,5 +1,5 @@
+import { sortData, filterData, calculateData } from './data.js';
 import data from './data/pokemon/pokemon.js';
-import { sortData, filterData } from './data.js';
 
 
 // TRAER ELEMENTOS DESDE HTML
@@ -99,7 +99,8 @@ function configureSortOrder(e, loadData) {
 // Traer elemento select desde HTML
 let selectType = document.getElementById("type-select");
 selectType.addEventListener("change", (e) => { configureFilterData(e, loadData) });
-// selectType.addEventListener("change", (e) => { showData (filterData(e, loadData)) });
+selectType.addEventListener("change", (e) => { configureCalculateData(e, loadData) });
+
 
 
 // Creamos un array para la lista de opciones del select
@@ -124,6 +125,23 @@ function configureFilterData(e, loadData){
     if (e.target.id == "type-select") {
         let filteredBy = e.target.value;
        showData(filterData(filteredBy, loadData))
+   
+    // var calculated = calculateData(filterData(filteredBy, loadData));
     }
+    // console.log(calculated);
+}
+
+
+// CALCULAR DATA
+function configureCalculateData(e, loadData){
+    if (e.target.id == "type-select") {
+        let filteredBy = e.target.value;   
+        var calculated = calculateData(filterData(filteredBy, loadData));
+    }
+    let containerCounter = document.getElementById("containerCounter");
+    containerCounter.innerHTML ="";
+    let counter = document.createElement("p");
+    counter.innerText = calculated;
+    containerCounter.appendChild(counter);
 }
 

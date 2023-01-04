@@ -27,16 +27,11 @@ const sortData = (data, sortBy, sortOrder) => {
             data
 }
 
-// function filterData(e, loadData) {
-//     if (e.target.id == "type-select") {
-//         let filteredData = loadData.filter(item => item.type[0] == e.target.value);
-//         return filteredData;
-//     }
-// }
-
 function filterData(filteredBy, loadData) {
     let filteredData = loadData.filter(item => item.type[0] == filteredBy);
     return filteredData;
 }
 
-export { sortData, filterData };
+const calculateData = (data) => data.length;
+
+export { sortData, filterData, calculateData };

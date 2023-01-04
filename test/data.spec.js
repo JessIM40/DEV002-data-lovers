@@ -1,4 +1,4 @@
-import { sortData, filterData } from '../src/data.js';
+import { sortData, filterData, calculateData} from '../src/data.js';
 
 const data = [
   { num: "001", name: "bulbasaur", type: ["grass", "poison"] },
@@ -50,3 +50,18 @@ describe("Pruebas de la función filterData", () => {
   })
 });
 
+//Testeo de la función calcular "calculateData"------------------------------------------
+describe("Pruebas de la función calculateData", () => {
+  it("Es una función", () => {
+    expect(typeof calculateData).toBe("function");
+  })
+  it("Debería retornar el numero de elementos de la data filtrada", () => {
+    const dataFiltered = [
+      { num: "001", name: "bulbasaur", type: ["grass", "poison"] },
+      { num: "043", name: "oddish", type: ["grass", "poison"] },
+      { num: "071", name: "victreebel", type: ["grass", "poison"] },
+      { num: "152", name: "chikorita", type: ["grass"] }
+    ];
+    expect(calculateData(dataFiltered)).toEqual(dataFiltered.length);
+  })
+});
