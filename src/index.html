@@ -9,33 +9,32 @@
   <body>
     <header class="title">POKEPEDIA</header>
     <main>
-      <!-- Contenedor de botones para ORDENAR tarjetas Pokemon -->
-      <div id="btnOrderContainer">
-        <div id="btnOrderContainer_type">
-          <button id="btnOrderType" class="btn_sort">Tipo</button>
-          <div id="btnOrderContainer_imgToType"></div>
+      <div class="containerButtons">
+        <!-- Contenedor de botones para ORDENAR tarjetas Pokemon -->
+        <div id="btnOrderContainer">
+          <div id="btnOrderContainer_type">
+            <button id="btnOrderType" class="btn_sort">Tipo</button>
+            <div id="btnOrderContainer_imgToType"></div>
+          </div>
+          <div id="btnOrderContainer_num">
+            <button id="btnOrderNum" class="btn_sort">N° creación</button>
+            <div id="btnOrderContainer_imgToNum"></div>
+          </div>
         </div>
-        <div id="btnOrderContainer_num">
-          <button id="btnOrderNum" class="btn_sort">N° creación</button>
-          <div id="btnOrderContainer_imgToNum"></div>
-        </div>
-      </div>
-      
-      <div id="containerPrincipal">
         <!-- Contenedor de botones para FILTRAR tarjetas Pokemon -->
         <div id="btnFilterContainer">
-          <!-- <div id="btnFilterContainer_generation">
-            <select name="generationPokemon" class="generationSelect" id="generation-Select">
-              <option value="" selected disabled> Filtrar por Generación: </option>
-            </select>
-          </div> -->
           <div id="containerCounter"></div>
-          <div id="btnFilterContainer_type">
+          <div id="btnFilterContainer_type" class="btn_filter">
             <select name="typesPokemon" id="type-select" required>
               <option value="" selected>--Filtrar por tipo:--</option>
             </select>
           </div>
         </div>
+      </div>
+      
+      
+      <div id="containerPrincipal">
+        
         <!-- Contenedor de tarjetas Pokemons -->
         <section id="cardsContainer"></section>
       </div>
