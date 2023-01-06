@@ -28,18 +28,18 @@ function showData(loadData) {
         let card = document.createElement("div");
         // Añadir/incluir todos los item de la card Pokemon
         card.innerHTML = `
-            <div id="container-pokeImage" class="pokeData">
+            <div id="container-pokeImage" class="container-pokeImage pokeData">
                 <img src="${item.img}"/>
             </div>
-            <div id="container-pokeNum_Name" class="pokeData">
+            <div id="container-pokeNum_Name" class="container-pokeNum_Name pokeData">
                 <h3 id="pokeName">${item.name}</h3>
                 <h3 id="pokeNum">${item.num}</h3>
             </div>
-            <div id="container-pokeType" class="pokeData">
+            <div id="container-pokeType" class="container-pokeType pokeData">
                 <h5 id="pokeType">${item.type}</h5>
                 
             </div>
-            <div id="container-pokeGeneration" class="pokeData">
+            <div id="container-pokeGeneration" class="container-pokeGeneration pokeData">
                 <h5 id="pokeGenerationName">${item.generation.name}</h5>
                 <h5 id="pokeGenerationNum">${item.generation.num}</h5>
             </div>`
