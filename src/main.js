@@ -125,10 +125,7 @@ function configureFilterData(e, loadData){
     if (e.target.id == "type-select") {
         let filteredBy = e.target.value;
        showData(filterData(filteredBy, loadData))
-   
-    // var calculated = calculateData(filterData(filteredBy, loadData));
     }
-    // console.log(calculated);
 }
 
 
@@ -136,7 +133,7 @@ function configureFilterData(e, loadData){
 function configureCalculateData(e, loadData){
     if (e.target.id == "type-select") {
         let filteredBy = e.target.value;   
-        var calculated = calculateData(filterData(filteredBy, loadData));
+        var calculated = calculateData(filterData(filteredBy, loadData), loadData);
     }
     let containerCounter = document.getElementById("containerCounter");
     containerCounter.innerHTML ="";

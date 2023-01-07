@@ -32,9 +32,9 @@ function filterData(filteredBy, loadData) {
     return filteredData;
 }
 
-const calculateData = (data) => data.length;
-
-
+const calculateData = (data, loadData) => {
+    return `${data.length} de ${loadData.length}`;
+}
 
 
 
