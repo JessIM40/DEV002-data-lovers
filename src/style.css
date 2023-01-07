@@ -116,34 +116,41 @@ h3, h5 {
     font-size: 15px;
 }
 
-footer {
+.footer {
     background-color: black;
     color: aliceblue;
     font-size: 15px;    
     width: 100%;
     height: auto;
     display: flex;
-    text-align: center;
     flex-direction: column;
     position: fixed;
     bottom: 0px;
     left: 0px;
     padding: 10px;
 }
-footer > p {
+.creditos {
+    /* border: 1px solid green; */
     font-size: 15px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
-
-footer > .contact {
+.contact {
     display: flex;
     justify-content:center;
 }
-.contact > p {
-    text-align: center;
+.contact > div {
+    display: flex;
+    align-items: center;
 }
 .logo_github {
     width: 20px;
+    margin: 0px 5px;
+}
+
+.contact_connie::before{
+    content: "||";
+    padding: 0 10px;
 }
 
 
