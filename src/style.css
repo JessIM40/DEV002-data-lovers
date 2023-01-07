@@ -1,3 +1,14 @@
+:root {
+    --darckBlue-color: #0078AA;
+    --cyanBlue-color: #3AB4F2;
+    --yello-color: #F2DF3A;
+    --grey-color: #F6F6F6;
+    --creamGey-color: #F7F5EB;
+    --moreGrey-color: #EAE0DA;
+    --blurGreyBlue-color: #A0C3D2;
+    --purpleBlur-color: #65647C;
+
+}
 *{
     margin: 0;
     padding: 0;
@@ -6,6 +17,7 @@
 
 body {
     width: 100%;
+    background-image: linear-gradient(90deg, var(--darckBlue-color), var(--cyanBlue-color));
 }
 
 .title {
@@ -22,31 +34,45 @@ body {
 /* AREA BOTONES */
 .containerButtons {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    height: 60px;
+    /* align-content: center; */
+    align-items: center;
+    flex-direction: row;
 }
 
     /* BOTONES PARA ORDENAR */
     #btnOrderContainer {
-        border: 1px solid blue;
+        /* border: 1px solid blue; */
         display: flex;
         justify-content: flex-end;
+        align-items: center;
     }
     #btnOrderContainer_type, #btnOrderContainer_num {
-        border: 5px solid green;
+        /* border: 5px solid green; */
         display: flex; /* para que el icono (ascendente/descendente) se ubique al costado*/
-        margin: 10px 20px;
+        /* margin: 10px 20px; */
         align-items: center;
-        background-color: cadetblue;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        background-image: linear-gradient(to bottom right, var(--blurGreyBlue-color), var(--moreGrey-color));
+        color: var(--purpleBlur-color);
+        width: 100px;
+        height: 50px;
+    }
+    #btnOrderContainer_type {
+        width: 80px;
     }
     .btn_sort {
-        font-size: 20px;
+        font-size: 18px;
         padding: 10px 15px;
         border: none;
         background-color: transparent;
     }
     #btnOrderContainer_imgToType, #btnOrderContainer_imgToNum {
         /* border: 1px solid red; */
-        height: 20px;
+        height: 10px;
         margin-right: 10px ;
     }
     #btnOrderContainer_imgToType img, #btnOrderContainer_imgToNum img {
@@ -56,26 +82,31 @@ body {
 
     /* BOTONES PARA FILTRAR */
     #btnFilterContainer {
-        border: 5px solid black;
-        background-color: darkcyan;
+        /* border: 5px solid black; */
+        /* background-color: darkcyan; */
         display: flex;
         align-items: center;
-        margin: 10px 20px;
+        /* margin: 10px 20px; */
         /* width: fit-content; */
         /* display: flex;
         flex-direction: column; */
         /* text-align: center; */
     }
     .btn_filter {
-        width: 130px;
-        /* font-size: 18px; */
+        font-size: 18px;
         
     }
 
     #type-select{
-        /* background-color: blueviolet; */
+        font-size: 18px;
+        /* box-shadow: 10%; */
         border: none;
-        background-color: darkcyan;
+        border-radius: 10px;
+        background-image: linear-gradient(to bottom right, var(--blurGreyBlue-color), var(--moreGrey-color));
+        color: var(--purpleBlur-color);
+        width: 100px;
+        height: 50px;
+        cursor: pointer;
     }
 
     option {
@@ -83,7 +114,8 @@ body {
     }
 
 #containerPrincipal {
-    border: 1px solid orange;
+    /* border: 1px solid orange; */
+    background-image: linear-gradient(to bottom right, var(--creamGey-color), var(--cyanBlue-color));
     display: flex;
     justify-content: center;
 }
@@ -98,9 +130,12 @@ body {
     width: fit-content;
 }
 #cardsContainer > div {
-    border: 1px solid green;
+    /* border: 1px solid green; */
+    background-color: var(--moreGrey-color);
     width: 190px;
     margin: 30px 20px;
+    /* ------------------------------------------------------- */
+    border-radius: 5% 10% 5% 10%;
 }
 #container-pokeImage{
     /* border: 1px solid orangered; */
