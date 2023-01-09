@@ -33,7 +33,7 @@ function filterData(filteredBy, loadData) {
 }
 
 const calculateData = (data, loadData) => {
-    return `${data.length} de ${loadData.length} Pokemons`;
+    return `${data.length}/${loadData.length}`;
 }
 
 
