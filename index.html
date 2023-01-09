@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataLovers Pokemon</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="title">POKEPEDIA</header>
+    <main>
+      <section class="containerButtons">
+        <!-- Contenedor de botones para ORDENAR tarjetas Pokemon -->
+        <div id="btnOrderContainer" class="btnOrderContainer">
+          <div id="btnOrderContainer_type" class="btnOrderContainer_type">
+            <button id="btnOrderType" class="btn_sort">Tipo</button>
+            <div id="btnOrderContainer_imgToType" class="btnOrderContainer_imgToType"></div>
+          </div>
+          <div id="btnOrderContainer_num" class="btnOrderContainer_num">
+            <button id="btnOrderNum" class="btn_sort">Número</button>
+            <div id="btnOrderContainer_imgToNum" class="btnOrderContainer_imgToNum"></div>
+          </div>
+        </div>
+        
+        <!-- Contenedor de botones para FILTRAR tarjetas Pokemon -->
+        <div id="btnFilterContainer" class="btnFilterContainer">
+          <div id="btnFilterContainer_type" class="btn_filter">
+            <select name="typesPokemon" id="type-select" class="type-select" required>
+              <option value="" selected>Filtrar:</option>
+            </select>
+          </div>
+        </div>
+      </section>
+      <!-- Contenedor del contador de pokemones -->
+      <section id="containerCounter" class="containerCounter"></section>
+      
+      <section id="containerPrincipal" class="containerPrincipal">
+        
+        <!-- Contenedor de tarjetas Pokemons -->
+        <div id="cardsContainer" class="cardsContainer"></div>
+      </section>
+      
+    </main>
+    <footer class="footer">
+      <p class="creditos">CREDITOS:</p>
+      <div class="contact">
+        <div class="contact_jess">
+          <a href="https://github.com/JessIM40" target="_blank"><img class="logo_github" src="./img/github-bn.png" alt="GitHub Jess"></a>
+          <p class="jess">Jess Inga Mayhua</p>
+        </div>
+        <div class="contact_connie">
+          <p class="connie">Constanza García</p>
+          <a href="https://github.com/ConyGage" target="_blank"><img class="logo_github" src="./img/github-bn.png" alt="GitHub Connie"></a>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- <div id="root"></div> -->
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
