@@ -1,3 +1,14 @@
+:root {
+    --darckBlue-color: #0078AA;
+    --cyanBlue-color: #3AB4F2;
+    --yello-color: #F2DF3A;
+    --grey-color: #F6F6F6;
+    --creamGey-color: #F7F5EB;
+    --moreGrey-color: #EAE0DA;
+    --blurGreyBlue-color: #A0C3D2;
+    --purpleBlur-color: #65647C;
+
+}
 *{
     margin: 0;
     padding: 0;
@@ -6,6 +17,7 @@
 
 body {
     width: 100%;
+    background-image: linear-gradient(90deg, var(--darckBlue-color), var(--cyanBlue-color));
 }
 
 .title {
@@ -29,29 +41,45 @@ main {
 /* AREA BOTONES */
 .containerButtons {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    height: 60px;
+    /* align-content: center; */
+    align-items: center;
+    flex-direction: row;
 }
 
     /* BOTONES PARA ORDENAR */
-    .btnOrderContainer {
+    #btnOrderContainer {
+        /* border: 1px solid blue; */
         display: flex;
         justify-content: flex-end;
-    }
-    .btnOrderContainer_type, .btnOrderContainer_num {
-        border: 5px solid green;
-        display: flex; /* para que el icono (ascendente/descendente) se ubique al costado*/
-        margin: 10px 20px;
         align-items: center;
-        background-color: cadetblue;
+    }
+    #btnOrderContainer_type, #btnOrderContainer_num {
+        /* border: 5px solid green; */
+        display: flex; /* para que el icono (ascendente/descendente) se ubique al costado*/
+        /* margin: 10px 20px; */
+        align-items: center;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        background-image: linear-gradient(to bottom right, var(--blurGreyBlue-color), var(--moreGrey-color));
+        color: var(--purpleBlur-color);
+        width: 100px;
+        height: 50px;
+    }
+    #btnOrderContainer_type {
+        width: 80px;
     }
     .btn_sort {
-        font-size: 20px;
+        font-size: 18px;
         padding: 10px 15px;
         border: none;
         background-color: transparent;
     }
-    .btnOrderContainer_imgToType, .btnOrderContainer_imgToNum {
-        height: 20px;
+    #btnOrderContainer_imgToType, #btnOrderContainer_imgToNum {
+        /* border: 1px solid red; */
+        height: 10px;
         margin-right: 10px ;
     }
     .btnOrderContainer_imgToType img, .btnOrderContainer_imgToNum img {
@@ -73,7 +101,12 @@ main {
 
     .type-select{
         border: none;
-        background-color: darkcyan;
+        border-radius: 10px;
+        background-image: linear-gradient(to bottom right, var(--blurGreyBlue-color), var(--moreGrey-color));
+        color: var(--purpleBlur-color);
+        width: 100px;
+        height: 50px;
+        cursor: pointer;
     }
 
     option {
@@ -97,6 +130,8 @@ main {
     border: 1px solid green;
     width: 190px;
     margin: 30px 20px;
+    /* ------------------------------------------------------- */
+    border-radius: 5% 10% 5% 10%;
 }
 .container-pokeImage{
     text-align: center;
