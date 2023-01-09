@@ -169,20 +169,7 @@ h3, h5 {
 
 
 /* MEDIA QUERY*/
-@media screen and (min-width: 800px){
-    .containerButtons {
-        flex-direction: row;
-        justify-content: space-between;
-        margin: 0 100px;
-    }
-    .btnOrderContainer {
-        flex-direction: row;
-        justify-content:space-around;
-        margin: 0;
-    }
-    .containerCounter {
-        font-size: 30px;
-    }
+@media screen and (min-width: 1200px){
     .footer{
         flex-direction: row;
         justify-content: center;
